@@ -19,13 +19,12 @@ app.get("/api", (req, res) => {
 
 //add URL to json file + its shortened version
 app.post("/shortURL", (req, res) => {
-  const { longURL, id } = req.body;
+  const longURL = req.body;
   const shortURL = shortid.generate();
 
   const newURL = {
     longURL: longURL,
     shortURL: shortURL,
-    id: id,
   };
 
   try {
