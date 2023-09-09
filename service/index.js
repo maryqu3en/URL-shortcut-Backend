@@ -4,11 +4,13 @@ const cors = require("cors");
 const fs = require("fs");
 const app = express();
 const shortid = require("shortid");
-const PORT = process.env.PORT || 5001;
+const PORT = 5001;
 
-app.use(cors({
-    origin:"*"
-}))
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -25,8 +27,8 @@ app.post("/shortURL", (req, res) => {
   const shortURL = shortid.generate();
 
   const newURL = {
-    longURL,
-    shortURL,
+    longURL: longURL,
+    shortURL: shortURL,
   };
 
   try {
