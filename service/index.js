@@ -23,8 +23,8 @@ app.post("/shortURL", (req, res) => {
   const shortURL = shortid.generate();
 
   const newURL = {
-    longURL: longURL,
-    shortURL: shortURL,
+    longURL,
+    shortURL,
   };
 
   try {
@@ -50,7 +50,7 @@ app.get("/shortURL/:url", (req, res) => {
 
   if (originalURLObject) {
     const originalURL = originalURLObject.longURL;
-    return res.redirect(302, originalURL);
+    return res.redirect(302, originalURL.longURL);
   } else {
     return res.status(404).json({ error: "Short URL not found" });
   }
