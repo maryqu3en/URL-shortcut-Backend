@@ -34,7 +34,8 @@ app.post("/shortURL", (req, res) => {
       JSON.stringify(URLSlist)
     );
     return res.status(200).json({
-      shortenedURL: `http://localhost:5001/shortURL/${shortURL}`,
+      // shortenedURL: `http://localhost:5001/shortURL/${shortURL}`,
+      shortenedURL: `https://url-shortcut-generator.onrender.com/shortURL/${shortURL}`,
     });
   } catch (error) {
     return res.status(500).json({ error: "Server error" });
